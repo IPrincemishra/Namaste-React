@@ -2,7 +2,7 @@
 
 ## Parcel 🚀
 
-Yeh sab features Parcel ke hain, neeche har ek ka short hinglish explanation diya hai:
+Yeh sab features Parcel ke hain
 
 - **Dev Build**  
     Development ke liye fast build process.
