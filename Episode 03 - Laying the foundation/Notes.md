@@ -223,3 +223,4 @@ root.render(<MyComponent />);
 - Yani agar tum kisi user input ko JSX mein directly likhte ho, toh React us input ko safe bana deta hai. Isliye, tumhe manually koi escaping karne ki zarurat nahi padti.
 - Matlab agar API se ya kisi source se koi malicious HTML ya JavaScript code aaye, toh React usko plain text ki tarah treat karta hai, na ki executable code ki tarah.
 - Iska fayda ye hai ki tumhe security ke liye extra effort nahi karna padta, React automatically tumhare code ko secure bana deta hai.
+- Lekin, agar tumhe kisi specific case mein HTML render karna hai (jaise ki dangerouslySetInnerHTML), toh tumhe khud se ensure karna padega ki wo input safe hai, kyunki wo React ke default XSS protection ko bypass kar deta hai.
