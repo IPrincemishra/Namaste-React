@@ -222,3 +222,4 @@ root.render(<MyComponent />);
 - React JSX by default XSS (Cross-Site Scripting) se protect hota hai. Iska matlab hai ki agar tum kisi user input ko directly JSX mein use karte ho, toh React us input ko escape kar deta hai taaki koi malicious script execute na ho sake.
 - Yani agar tum kisi user input ko JSX mein directly likhte ho, toh React us input ko safe bana deta hai. Isliye, tumhe manually koi escaping karne ki zarurat nahi padti.
 - Matlab agar API se ya kisi source se koi malicious HTML ya JavaScript code aaye, toh React usko plain text ki tarah treat karta hai, na ki executable code ki tarah.
+- Iska fayda ye hai ki tumhe security ke liye extra effort nahi karna padta, React automatically tumhare code ko secure bana deta hai.
