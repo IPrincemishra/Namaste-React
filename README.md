@@ -48,5 +48,5 @@ Yeh sab features Parcel ke hain
 ## After episode 05
 
 - I am not creating folder for each episode, I will create a single folder for all episodes Notes and put all Notes in that folder.
-- But all code will be only updated in the latest episode folder.
-- I will also create a single file for all the code in the latest episode folder.
+- But all code will be only updated in the Episode 05.
+- all latest code in the Episode 05 folder.
