@@ -44,3 +44,9 @@ Yeh sab features Parcel ke hain
 
 - useState()
 - useEffect()
+
+## After episode 05
+
+- I am not creating folder for each episode, I will create a single folder for all episodes and put all files in that folder.
+- But all code will be only updated in the latest episode folder.
+- I will also create a single file for all the code in the latest episode folder.
