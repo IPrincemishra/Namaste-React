@@ -37,3 +37,10 @@ Yeh sab features Parcel ke hain
 - **Tree Shaking**  
     Unused code ko hata deta hai, sirf zaroori code hi bundle hota hai.
 - **Different dev and prod bundles**
+
+## React Hooks
+
+(Normal JS Utility Functions)
+
+- useState()
+- useEffect()
