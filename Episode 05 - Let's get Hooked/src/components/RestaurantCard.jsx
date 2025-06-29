@@ -1,4 +1,4 @@
-import {CON_URL} from "../utils/constants.js"; // Importing constants for image URL
+import { CON_URL } from "../utils/constants.js"; // Importing constants for image URL
 
 const RestaurantCard = (props) => {
     const { resData } = props;
@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
         cuisines,
         avgRating,
         costForTwo
-    } = resData?.data;
+    } = resData?.info;
 
     return (
         <div className="res-card">
@@ -18,7 +18,7 @@ const RestaurantCard = (props) => {
             <p>{cuisines.join(", ")}</p>
             <div className="res-details">
                 <h6>{avgRating} stars</h6>
-                <h5>₹{costForTwo / 100} for one</h5>
+                <h5>{costForTwo}</h5>
             </div>
         </div>
     )
