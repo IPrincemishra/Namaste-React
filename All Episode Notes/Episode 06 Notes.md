@@ -146,6 +146,15 @@ const MyComponent = () => {
   - Timers (setTimeout, setInterval)
 - `useEffect` hook React mein side effects handle karne ke liye use hota hai, jaise API calls, subscriptions, ya DOM manipulations.
 - Yeh hook component ke lifecycle ke dauran run hota hai, jaise component mount hone par, update hone par, aur unmount hone par.
+  
+### Important Points
+
+- `useEffect` ka second argument ek dependency array hota hai. Is array mein aap un variables ko specify karte ho jinke change hone par effect run hona chahiye.
+- Agar aap dependency array ko khali rakhte ho (`[]`), toh effect sirf component mount hone par run hota hai.
+- Agar aap dependency array mein specific variables ko rakhte ho, toh effect un variables ke change hone par run hoga.
+- Agar aap dependency array nahi dete, toh effect har render par run hoga, jo performance ke liye acha nahi hota.
+- `useEffect` ko cleanup function return karne ke liye bhi use kiya ja sakta hai, jo component unmount hone par ya effect re-run hone par call hota hai.
+- Cleanup function ka use karke aap subscriptions ya timers ko clean up kar sakte hain.
 
 ## 05 -  CORS Policy
 

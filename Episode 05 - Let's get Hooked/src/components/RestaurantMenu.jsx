@@ -56,13 +56,13 @@ const RestaurantMenu = () => {
                                     item.card.info.price / 100 ||
                                     item.card.info.finalPrice / 100 ||
                                     item.card.info.variantsV2.pricingModels[0].price / 100 ||
-                                    ""
+                                    "N/A"
                                 }</p>
                                 <p className="item-rating">
                                     {item.card.info.ratings.aggregatedRating.rating ? `⭐ ${item.card.info.ratings.aggregatedRating.rating}` : "Rating is Not Available"}
                                     {item.card.info.ratings?.aggregatedRating?.ratingCountV2
                                         ? `(${item.card.info.ratings.aggregatedRating.ratingCountV2})`
-                                        : "N/A"}
+                                        : " "}
                                 </p>
                             </div>
                             <img src={CON_URL + item.card.info.imageId} alt={item.card.info.name} />
