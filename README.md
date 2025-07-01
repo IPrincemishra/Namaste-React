@@ -50,3 +50,15 @@ Yeh sab features Parcel ke hain
 - I am not creating folder for each episode, I will create a single folder for all episodes Notes and put all Notes in that folder.
 - But all code will be only updated in the Episode 05.
 - all latest code in the Episode 05 folder.
+
+## Two types of routing
+
+### Server-Side Routing
+
+- Server par routing hoti hai, yani server decide karta hai ki kaunsa page render karna hai.
+- Jaise hi user URL change karta hai, server se naya HTML page fetch hota hai.
+
+### Client-Side Routing
+
+- Client (browser) par routing hoti hai, yani React app decide karta hai ki kaunsa component render karna hai bina page reload kiye.
+- Isme URL change hone par naya HTML fetch nahi hota, balki existing page par hi content update hota hai.

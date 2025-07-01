@@ -4,13 +4,22 @@
     box-sizing: border-box;
 }
 
-body, input, button, textarea, select {
-  font-family: 'Poppins', sans-serif !important;
+body,
+input,
+button,
+textarea,
+select {
+    font-family: 'Poppins', sans-serif !important;
 }
 
-body{
+body {
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -47,6 +56,19 @@ body{
     gap: 2.5rem;
     font-size: 1rem;
     text-transform: uppercase;
+}
+
+.header .nav-items ul li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.header .nav-items ul li a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
 }
 
 .login-btn {
@@ -221,10 +243,84 @@ input:focus {
     background-color: #f0f0f0;
 }
 
-.shimmer-header{
+.shimmer-header {
     width: 100%;
     height: 12vh;
     padding: 1rem 3rem;
     background-color: #f0f0f0;
     border-radius: 5px;
+}
+
+.menu-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.menu {
+    width: 70%;
+}
+
+.card-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 0.5rem;
+}
+
+.item-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    min-height: 100px;
+    background-color: #6b6b6b10;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.item-cards:hover {
+    background-color: #6b6b6b20;
+}
+
+.item-cards img {
+    width: 120px;
+    border-radius: 4px;
+}
+
+.item-cards div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item-rating {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a6649;
+}
+
+.item-price {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.menu button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem 0.25rem;
 }
