@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -29,6 +30,12 @@ const Body = () => {
     const handleSearch = () => {
         const serachList = allRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchTxt.toLowerCase()))
         setFilteredList(serachList)
+    }
+
+    const OnlineStatus = useOnlineStatus()
+
+    if(OnlineStatus === false){
+        return <h1>You are Offline</h1>
     }
 
     if (allRestaurants.length === 0) {

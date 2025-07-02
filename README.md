@@ -62,3 +62,11 @@ Yeh sab features Parcel ke hain
 
 - Client (browser) par routing hoti hai, yani React app decide karta hai ki kaunsa component render karna hai bina page reload kiye.
 - Isme URL change hone par naya HTML fetch nahi hota, balki existing page par hi content update hota hai.
+
+## Bundling in Dynamic Way
+
+- Chunking
+- Code Splitting
+- Dynamic Bundling
+- lazy loading
+- on demand loading
