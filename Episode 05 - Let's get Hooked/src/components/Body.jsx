@@ -34,7 +34,7 @@ const Body = () => {
 
     const OnlineStatus = useOnlineStatus()
 
-    if(OnlineStatus === false){
+    if (OnlineStatus === false) {
         return <h1>You are Offline</h1>
     }
 
@@ -43,18 +43,21 @@ const Body = () => {
     }
 
     return (
-        <div className="body">
-            <div className="search-container">
-                <div className="filter">
-                    <button className="filter-btn"
+        <div
+            className="Body w-full h-full bg-[#cccccc25]">
+            <div className="search-container flex w-[100%] items-center justify-between py-[1.25rem] px-[3rem] border-b border-b-[#14181e2c] mb-[1.25rem]">
+                <div
+                    className="h-[7vh] flex justify-end items-center">
+                    <button
+                        className="w-fit px-4 h-8 rounded-[5px] border-0 bg-[#007bff] text-white cursor-pointer"
                         onClick={handleFilter}>
                         Filter - Top Rated
                     </button>
                 </div>
-                <div className="search-box">
+                <div className="search-box flex gap-[2rem]">
                     <input
                         type="text"
-                        className="search"
+                        className="w-[300px] h-8 border-b border-[rgba(0,0,0,0.52)] p-2 focus:outline-none focus:border-[#007bff]"
                         value={searchTxt}
                         onChange={(e) => setSearchTxt(e.target.value)}
                         onKeyDown={(e) => {
@@ -62,10 +65,10 @@ const Body = () => {
                         }}
                         placeholder="Type....."
                     />
-                    <button onClick={handleSearch}>Search</button>
+                    <button className="bg-[#f75201] text-[#fff] px-[1rem] rounded cursor-pointer border-none" onClick={handleSearch}>Search</button>
                 </div>
             </div>
-            <div className="res-container">
+            <div className="w-full px-[1rem] pb-4 flex justify-center gap-10 flex-wrap">
                 {
                     filteredList.length === 0 ? (
                         <h2>No restaurants found.</h2>

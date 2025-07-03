@@ -15,8 +15,12 @@
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.6",
+    "@tailwindcss/postcss": "^4.1.11",
+    "init": "^0.1.2",
+    "npx": "^10.2.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^6.30.1"
+    "react-router-dom": "^6.30.1",
+    "tailwindcss": "^4.1.11"
   }
 }
