@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { CON_URL } from "../utils/constants.js"; // Importing constants for image URL
+import UserContext from "../utils/UserContext.js";
 
 const RestaurantCard = (props) => {
     const { resData } = props;
+
+    const { loggedInUser } = useContext(UserContext)
 
     const {
         cloudinaryImageId,

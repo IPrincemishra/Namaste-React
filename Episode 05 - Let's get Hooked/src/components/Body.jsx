@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
 
     const [allRestaurants, setAllRestaurants] = useState([])
     const [filteredList, setFilteredList] = useState([])
     const [searchTxt, setSearchTxt] = useState("")
+
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,9 +38,13 @@ const Body = () => {
 
     const OnlineStatus = useOnlineStatus()
 
+
+
     if (OnlineStatus === false) {
         return <h1>You are Offline</h1>
     }
+
+    const { setUserName,loggedInUser } = useContext(UserContext)
 
     if (allRestaurants.length === 0) {
         return <Shimmer />;
@@ -53,6 +61,15 @@ const Body = () => {
                         onClick={handleFilter}>
                         Filter - Top Rated
                     </button>
+                </div>
+                <div className="search-box flex gap-[2rem]">
+                    <input
+                        type="text"
+                        className="w-[300px] h-8 border-b border-[rgba(0,0,0,0.52)] p-2 focus:outline-none focus:border-[#007bff]"
+                        value={loggedInUser}
+                        onChange={(e) => setUserName(e.target.value)}
+                        placeholder="Username"
+                    />
                 </div>
                 <div className="search-box flex gap-[2rem]">
                     <input

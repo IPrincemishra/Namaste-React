@@ -11,7 +11,7 @@ const useRestaurantMenu = (resId) => {
             const data = await fetch(MENU_API + resId)
             const json = await data.json()
             setResInfo(json.data)
-            const menuRes = json.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards || [];
+            const menuRes = json.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[9]?.card?.card?.itemCards || [];
             setFilterItems(menuRes)
         }
         fetchMenu();

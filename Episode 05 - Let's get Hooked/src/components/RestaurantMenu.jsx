@@ -3,10 +3,12 @@ import Shimmer from './Shimmer'
 import { CON_URL, MENU_API } from '../utils/constants'
 import { useParams } from 'react-router-dom'
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-
+import RestaurantCategory from "./RestaurantCategory"
 const RestaurantMenu = () => {
 
     const { resId } = useParams()
+
+    const [showIndex, setShowIndex] = useState(0)
 
     const { resInfo, filterItems, setFilterItems } = useRestaurantMenu(resId)
 
@@ -16,7 +18,12 @@ const RestaurantMenu = () => {
 
     const { name, costForTwoMessage, cuisines } = resInfo?.cards[2]?.card?.card?.info;
 
-    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[9]?.card?.card;
+
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((res) => res.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+
+    // console.log(categories);
+
 
     const vegFilter = () => {
         const vegMenu = itemCards?.filter((res) => res.card.info.itemAttribute.vegClassifier == "VEG")
@@ -41,32 +48,18 @@ const RestaurantMenu = () => {
                 <button className={btnStyle} onClick={allFilter}>All</button>
                 <button className={btnStyle} onClick={vegFilter}>Veg</button>
                 <button className={btnStyle} onClick={nonVegFilter}>Non-Veg</button>
+                {/* Categories Accordion */}
                 <div className="card-container w-full h-full flex justify-center flex-wrap py-[2rem] border-t-1 border-[#0000005b] gap-[1rem] mt-2">
-                    {filterItems.map((item) => (
-                        <div className="item-cards flex items-center justify-between w-[80%] min-h-[100px] bg-[#6b6b6b10] p-[1rem] border-b-2 border-[#0000005b] rounded-t-2xl transition-all duration-300 ease hover:bg-[#6b6b6b20]" key={item.card.info.id}>
-                            <div className="flex flex-col gap-[0.5rem]">
-                                <h4 >{item.card.info.name} </h4>
-                                <p className="item-price text-[15px] font-medium">Rs. {
-                                    item.card.info.price / 100 ||
-                                    item.card.info.finalPrice / 100 ||
-                                    item.card.info.variantsV2.pricingModels[0].price / 100 ||
-                                    "N/A"
-                                }</p>
-                                <p className="item-rating text-[14px] font-medium text-[#1a6649]">
-                                    {item.card.info.ratings.aggregatedRating.rating ? `⭐ ${item.card.info.ratings.aggregatedRating.rating}` : "Rating is Not Available"}
-                                    {item.card.info.ratings?.aggregatedRating?.ratingCountV2
-                                        ? `(${item.card.info.ratings.aggregatedRating.ratingCountV2})`
-                                        : " "}
-                                </p>
-                            </div>
-                            <img
-                                className="w-[150px] rounded-2xl"
-                                src={CON_URL + item.card.info.imageId}
-                                alt={item.card.info.name}
-                            />
-                        </div>
-                    ))
-                    }
+                    {categories.map((category, index) => (
+                        //! Controlled component
+                        <RestaurantCategory
+                            key={category?.card?.card?.id || category?.card?.card?.title || index}
+                            data={category?.card?.card}
+                            showItems={index === showIndex ? true : false}
+                            setShowIndex={() => setShowIndex(index)}
+                        />
+                    ))}
+
                 </div>
             </div>
         </div>
