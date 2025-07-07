@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "@fontsource/poppins";
 import "@fontsource/poppins/500.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
+import { Provider } from "react-redux";
 
 
 import Header from "./components/Header";
@@ -13,6 +13,8 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 const About = lazy(() => import("./components/About"))
@@ -30,12 +32,14 @@ const App = () => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ loggedInUser: userName,setUserName }}>
-            <div>
-                <Header /> {/* Header */}
-                <Outlet />
-            </div>
-        </UserContext.Provider >
+        <Provider store={appStore}>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+                <div>
+                    <Header /> {/* Header */}
+                    <Outlet />
+                </div>
+            </UserContext.Provider >
+        </Provider>
     )
 };
 
@@ -55,6 +59,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             },
             {
                 path: "/grocery",

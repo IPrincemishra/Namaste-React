@@ -10,32 +10,13 @@ const RestaurantMenu = () => {
 
     const [showIndex, setShowIndex] = useState(0)
 
-    const { resInfo, filterItems, setFilterItems } = useRestaurantMenu(resId)
-
-    const btnStyle = "bg-[#007bff] text-white px-4 py-2 border-0 rounded-[5px] cursor-pointer my-4 mx-1"
+    const { resInfo } = useRestaurantMenu(resId)
 
     if (resInfo === null) return <Shimmer />
 
     const { name, costForTwoMessage, cuisines } = resInfo?.cards[2]?.card?.card?.info;
 
-    const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[9]?.card?.card;
-
     const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((res) => res.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-
-    // console.log(categories);
-
-
-    const vegFilter = () => {
-        const vegMenu = itemCards?.filter((res) => res.card.info.itemAttribute.vegClassifier == "VEG")
-        setFilterItems(vegMenu)
-    }
-    const nonVegFilter = () => {
-        const nonVegMenu = itemCards?.filter((res) => res.card.info.itemAttribute.vegClassifier == "NONVEG")
-        setFilterItems(nonVegMenu)
-    }
-    const allFilter = () => {
-        setFilterItems(itemCards)
-    }
 
     return (
         <div className="menu-container w-full flex flex-col items-center justify-center py-[2rem]">
@@ -45,9 +26,6 @@ const RestaurantMenu = () => {
                 <h2 className="text-2xl pt-1">
                     Menu
                 </h2>
-                <button className={btnStyle} onClick={allFilter}>All</button>
-                <button className={btnStyle} onClick={vegFilter}>Veg</button>
-                <button className={btnStyle} onClick={nonVegFilter}>Non-Veg</button>
                 {/* Categories Accordion */}
                 <div className="card-container w-full h-full flex justify-center flex-wrap py-[2rem] border-t-1 border-[#0000005b] gap-[1rem] mt-2">
                     {categories.map((category, index) => (
